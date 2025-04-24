@@ -1,0 +1,793 @@
+/* Palette de couleurs féminine */
+:root {
+    --primary-color: #d87093; /* Rose moyen */
+    --secondary-color: #5e4b56; /* Prune foncé */
+    --accent-color: #ff85a2; /* Rose vif */
+    --light-color: #f8f1f4; /* Rose très pâle */
+    --dark-color: #4a3b43; /* Prune plus foncé */
+    --text-color: #333;
+    --bg-color: #fdf7fa; /* Fond légèrement rosé */
+    --card-bg: #ffffff;
+    --header-bg: rgba(255, 255, 255, 0.95);
+    --shadow: 0 5px 15px rgba(216, 112, 147, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --primary-color: #ff9eb5; /* Rose plus clair pour le mode sombre */
+    --secondary-color: #5e4b56; /* Prune foncé */
+    --accent-color: #ff85a2; /* Rose vif */
+    --light-color: #f8f1f4; /* Rose très pâle */
+    --dark-color: #2a2a2a; /* Presque noir */
+    --text-color: #f5f5f5;
+    --bg-color: #1a1a1a;
+    --card-bg: #2d2d2d;
+    --header-bg: rgba(30, 30, 30, 0.95);
+    --shadow: 0 5px 15px rgba(255, 158, 181, 0.2);
+}
+
+/* Animations améliorées */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+/* Boutons stylisés */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+    font-size: 0.9rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(216, 112, 147, 0.3);
+}
+
+.primary-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+                               rgba(255,255,255,0) 0%, 
+                               rgba(255,255,255,0.2) 50%, 
+                               rgba(255,255,255,0) 100%);
+    z-index: -1;
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.primary-btn:hover::after {
+    transform: translateX(100%);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.secondary-btn:hover {
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(216, 112, 147, 0.2);
+}
+
+.secondary-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+}
+
+.secondary-btn:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Hero Section avec animation */
+.hero {
+    position: relative;
+    background: linear-gradient(135deg, 
+                               rgba(216, 112, 147, 0.8), 
+                               rgba(94, 75, 86, 0.9)), 
+                               url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, 
+                              rgba(255, 133, 162, 0.2) 0%, 
+                              rgba(0, 0, 0, 0) 70%);
+    animation: pulse 4s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease forwards;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+    color: var(--light-color);
+    animation: fadeInUp 1s ease 0.3s forwards;
+    opacity: 0;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    animation: fadeInUp 1s ease 0.6s forwards;
+    opacity: 0;
+}
+
+.hero-buttons {
+    animation: fadeInUp 1s ease 0.9s forwards;
+    opacity: 0;
+}
+
+.social-links {
+    animation: fadeInUp 1s ease 1.2s forwards;
+    opacity: 0;
+}
+
+.social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: white;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.4s ease;
+}
+
+.social-links a:hover::before {
+    transform: scale(1);
+}
+
+.social-links a i {
+    position: relative;
+    z-index: 1;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Taekwondo améliorée */
+.taekwondo-values .value {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.taekwondo-values .value::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid var(--primary-color);
+    border-radius: 15px;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: all 0.5s ease;
+}
+
+.taekwondo-values .value:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.taekwondo-values .value i {
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
+}
+
+.taekwondo-values .value:hover i {
+    transform: scale(1.3) rotateY(360deg);
+    color: var(--accent-color);
+}
+
+.taekwondo-values .value h4 {
+    position: relative;
+    transition: transform 0.4s ease;
+}
+
+.taekwondo-values .value:hover h4 {
+    transform: translateY(5px);
+}
+
+.taekwondo-values .value h4::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transform: translateX(-50%);
+    transition: width 0.4s ease;
+}
+
+.taekwondo-values .value:hover h4::after {
+    width: 50%;
+}
+
+/* Timeline améliorée */
+.timeline-dot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    top: 20px;
+    z-index: 1;
+    box-shadow: 0 0 0 4px var(--primary-color);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+    transform: scale(1.3);
+    box-shadow: 0 0 0 6px var(--primary-color), 0 0 20px rgba(216, 112, 147, 0.6);
+}
+
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    border-radius: 2px;
+}
+
+.timeline-content {
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.timeline-item:hover .timeline-content::before {
+    transform: translateX(0);
+}
+
+/* Galerie photos améliorée */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+                              rgba(216, 112, 147, 0) 0%, 
+                              rgba(216, 112, 147, 0.8) 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.gallery-item:hover::before {
+    opacity: 1;
+}
+
+.gallery-item img {
+    transition: transform 0.7s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px;
+    color: white;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-overlay span {
+    position: relative;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.gallery-overlay span::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.4s ease 0.2s;
+}
+
+.gallery-item:hover .gallery-overlay span::after {
+    width: 100%;
+}
+
+/* Projets améliorés */
+.project-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color), var(--primary-color));
+    z-index: -1;
+    border-radius: 17px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+.project-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.project-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+                              rgba(216, 112, 147, 0) 50%, 
+                              rgba(216, 112, 147, 0.5) 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.project-card:hover .project-image::after {
+    opacity: 1;
+}
+
+.project-tags span {
+    background-color: var(--light-color);
+    color: var(--primary-color);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.project-tags span:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.project-links a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 5px 0;
+    overflow: hidden;
+}
+
+.project-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+}
+
+.project-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Contact section améliorée */
+.contact-item {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.contact-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+                              rgba(216, 112, 147, 0.1), 
+                              rgba(255, 133, 162, 0.1));
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+}
+
+.contact-item:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.contact-item i {
+    position: relative;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.contact-item:hover i {
+    transform: scale(1.3);
+    color: var(--accent-color);
+}
+
+.form-group input,
+.form-group textarea {
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(216, 112, 147, 0.2);
+}
+
+.form-group label {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 8px;
+    padding-left: 5px;
+}
+
+.form-group label::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background-color: var(--primary-color);
+    transition: height 0.3s ease;
+    transform: translateY(-50%);
+}
+
+.form-group input:focus + label::before,
+.form-group textarea:focus + label::before {
+    height: 80%;
+}
+
+/* Theme Switch amélioré */
+.theme-switch {
+    position: relative;
+}
+
+.theme-switch .fa-sun {
+    color: #ffb347;
+    transition: transform 0.5s ease, color 0.3s ease;
+}
+
+.theme-switch .fa-moon {
+    color: #6e6e9c;
+    transition: transform 0.5s ease, color 0.3s ease;
+}
+
+.theme-switch:hover .fa-sun {
+    transform: rotate(30deg);
+    color: #ffc107;
+}
+
+.theme-switch:hover .fa-moon {
+    transform: rotate(-30deg);
+    color: #9191c9;
+}
+
+.slider {
+    background: linear-gradient(to right, #ffb347, #ffcc33);
+    transition: all 0.4s ease;
+}
+
+.slider:before {
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+input:checked + .slider {
+    background: linear-gradient(to right, #6e6e9c, #9191c9);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--primary-color);
+}
+
+/* Footer amélioré */
+footer {
+    background: linear-gradient(to right, var(--secondary-color), var(--dark-color));
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+}
+
+.footer-logo {
+    position: relative;
+    display: inline-block;
+}
+
+.footer-logo::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.4s ease;
+}
+
+.footer-logo:hover::after {
+    width: 100%;
+}
+
+.footer-social a {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s ease;
+}
+
+.footer-social a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-color);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.4s ease;
+}
+
+.footer-social a:hover::before {
+    transform: scale(1);
+}
+
+.footer-social a i {
+    position: relative;
+    z-index: 1;
+}
+
+.footer-social a:hover {
+    transform: translateY(-5px) rotate(360deg);
+}
+
+/* Animations supplémentaires */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(216, 112, 147, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(216, 112, 147, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(216, 112, 147, 0.5);
+    }
+}
+
+.profile-image, .taekwondo-img {
+    animation: float 6s ease-in-out infinite;
+}
+
+.logo {
+    position: relative;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    transition: width 0.4s ease;
+}
+
+.logo:hover::after {
+    width: 100%;
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, var(--accent-color), var(--primary-color));
+}

@@ -1,0 +1,515 @@
+/* Dual Universe Theme - Tech and Sport */
+
+:root {
+    /* Tech Universe Colors */
+    --tech-primary: #7B2CBF;
+    --tech-secondary: #9D4EDD;
+    --tech-accent: #C77DFF;
+    --tech-background: #10002B;
+    --tech-text: #E0AAFF;
+    --tech-border: #5A189A;
+    
+    /* Sport Universe Colors */
+    --sport-primary: #06D6A0;
+    --sport-secondary: #1B9AAA;
+    --sport-accent: #06d6a0;
+    --sport-background: #073B4C;
+    --sport-text: #06d6a0;
+    --sport-border: #118AB2;
+    
+    /* Shared Colors */
+    --white: #ffffff;
+    --black: #000000;
+    --gray-light: #f5f5f5;
+    --gray: #cccccc;
+    --gray-dark: #333333;
+}
+
+/* Split Screen Home Page */
+.dual-universe-home {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.universe-selector {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px 15px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.universe-selector label {
+    margin: 0 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.universe-selector label[for="tech-universe"] {
+    color: var(--tech-accent);
+}
+
+.universe-selector label[for="sport-universe"] {
+    color: var(--sport-accent);
+}
+
+.universe-toggle {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background: var(--gray-dark);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.universe-toggle:before {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    background: var(--tech-accent);
+    transition: all 0.3s ease;
+}
+
+#universe-switch {
+    display: none;
+}
+
+#universe-switch:checked + .universe-toggle:before {
+    transform: translateX(30px);
+    background: var(--sport-accent);
+}
+
+/* Split Screen Hero */
+.split-hero {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.tech-side, .sport-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-side {
+    background: linear-gradient(135deg, var(--tech-background), var(--tech-primary));
+    color: var(--tech-text);
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+}
+
+.sport-side {
+    background: linear-gradient(135deg, var(--sport-background), var(--sport-primary));
+    color: var(--sport-text);
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.universe-content {
+    text-align: center;
+    max-width: 500px;
+    z-index: 2;
+    position: relative;
+}
+
+.universe-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.universe-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.universe-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.tech-btn {
+    background: var(--tech-accent);
+    color: var(--tech-background);
+    box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
+}
+
+.tech-btn:hover {
+    background: var(--tech-secondary);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(157, 78, 221, 0.6);
+}
+
+.sport-btn {
+    background: var(--sport-accent);
+    color: var(--white);
+    box-shadow: 0 4px 15px #06d6a0;
+}
+.sport-btn:hover {
+    background: var(--sport-secondary);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(27, 154, 170, 0.6);
+}
+
+.universe-icon {
+    font-size: 8rem;
+    margin-bottom: 2rem;
+    opacity: 1;
+    color: var(--white);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    animation: pulse 2s infinite;
+}
+
+/* Background elements */
+.tech-bg-elements, .sport-bg-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.3;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.8) contrast(1.2);
+}
+
+.tech-bg-elements {
+    background: url('../images/info.png') no-repeat center center;
+    background-size: cover;
+}
+
+.sport-bg-elements {
+    background: url('../images/taekwondo.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+/* Overlay pour améliorer la lisibilité du texte */
+.tech-side:before, .sport-side:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.tech-side:before {
+    background: linear-gradient(135deg, rgba(16, 0, 43, 0.8), rgba(123, 44, 191, 0.7));
+}
+
+.sport-side:before {
+    background: linear-gradient(135deg, rgba(7, 59, 76, 0.8), rgba(6, 214, 160, 0.7));
+}
+
+/* Améliorer la visibilité des icônes SVG */
+.universe-icon img {
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
+    transition: transform 0.3s ease, filter 0.3s ease;
+    width: 180px;
+    height: auto;
+}
+
+.universe-icon img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1));
+}
+
+/* Tech Universe Styling */
+.tech-universe-active .header-nav {
+    background: var(--tech-background);
+    border-bottom: 2px solid var(--tech-border);
+}
+
+.tech-universe-active .section-title {
+    color: #e040fb;
+}
+
+.tech-universe-active .btn.primary-btn {
+    background: var(--tech-primary);
+    color: var(--white);
+}
+
+.tech-universe-active .btn.secondary-btn {
+    border: 2px solid var(--tech-secondary);
+    color: var(--tech-secondary);
+}
+
+/* Sport Universe Styling */
+.sport-universe-active .header-nav {
+    background: var(--sport-background);
+    border-bottom: 2px solid var(--sport-border);
+}
+
+.sport-universe-active .section-title {
+    color: var(--sport-primary);
+}
+
+.sport-universe-active .btn.primary-btn {
+    background: var(--sport-primary);
+    color: var(--white);
+}
+
+.sport-universe-active .btn.secondary-btn {
+    border: 2px solid var(--sport-secondary);
+    color: var(--sport-secondary);
+}
+
+/* Custom Contact Form for Each Universe */
+.contact-form-wrapper {
+    margin-top: 2rem;
+}
+
+.universe-select {
+    margin-bottom: 1.5rem;
+}
+
+.universe-select select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid var(--gray);
+    background-color: var(--white);
+    font-size: 1rem;
+    color: var(--gray-dark);
+}
+
+.tech-universe-active .universe-select select {
+    border-color: var(--tech-border);
+}
+
+.sport-universe-active .universe-select select {
+    border-color: var(--sport-border);
+}
+
+/* Navbar Moderne */
+.modern-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-text {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--tech-primary), var(--sport-primary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-right: 10px;
+    position: relative;
+    z-index: 2;
+    letter-spacing: -1px;
+}
+
+.logo-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: 3px;
+    position: relative;
+    top: -10px;
+}
+
+.tech-dot {
+    background-color: var(--tech-primary);
+    box-shadow: 0 0 10px var(--tech-primary);
+}
+
+.sport-dot {
+    background-color: var(--sport-primary);
+    box-shadow: 0 0 10px var(--sport-primary);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    margin-right: 0;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.nav-links li {
+    margin: 0 8px;
+}
+
+.nav-link {
+    color: var(--gray-dark);
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tech-universe-active .nav-link:hover,
+.tech-universe-active .nav-link.active {
+    background: linear-gradient(135deg, var(--tech-primary), var(--tech-secondary));
+    color: white;
+    box-shadow: 0 5px 15px rgba(123, 44, 191, 0.3);
+}
+
+.sport-universe-active .nav-link:hover,
+.sport-universe-active .nav-link.active {
+    background: linear-gradient(135deg, var(--sport-primary), var(--sport-secondary));
+    color: white;
+    box-shadow: 0 5px 15px rgba(6, 214, 160, 0.3);
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .nav-container {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100vh - 70px);
+        background: rgba(255, 255, 255, 0.95);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+    
+    .nav-container.active {
+        right: 0;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .nav-links li {
+        margin: 10px 0;
+        width: 100%;
+    }
+    
+    .nav-link {
+        width: 100%;
+        padding: 12px 15px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .split-hero {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .tech-side, .sport-side {
+        width: 100%;
+        min-height: 50vh;
+        clip-path: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .universe-title {
+        font-size: 2rem;
+    }
+    
+    .universe-subtitle {
+        font-size: 1rem;
+    }
+    
+    .universe-icon {
+        font-size: 5rem;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+.slide-in-left {
+    animation: slideInLeft 1s ease forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 1s ease forwards;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yosra Mekaoui - Univers Tech</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme-dark-purple-combined.css">
+    <link rel="stylesheet" href="css/dual-universe.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <style>
+        .tech-universe-page {
+            background: linear-gradient(135deg, var(--tech-background), var(--tech-primary));
+            color: var(--tech-text);
+            min-height: 100vh;
+        }
+        
+        .section-tech {
+            padding: 80px 0;
+        }
+        
+        .tech-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .tech-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .tech-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .formation-card, .competence-card, .experience-card {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .formation-card:hover, .competence-card:hover, .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .formation-card h3, .competence-card h3, .experience-card h3 {
+            color: var(--tech-accent);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .tech-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .tech-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--tech-primary);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .experience-date {
+            background: var(--tech-primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .experience-company {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+        
+        .experience-title {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--tech-accent);
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .tech-tag {
+            background: var(--tech-secondary);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .project-title {
+            font-weight: bold;
+            margin: 15px 0 10px;
+            color: var(--tech-accent);
+        }
+        
+        .task-list {
+            margin-left: 20px;
+        }
+        
+        .task-list li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .task-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--tech-accent);
+        }
+        
+        .back-to-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--tech-primary);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .back-to-home:hover {
+            background: var(--tech-secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+       
+    </style>
+</head>
+<body class="tech-universe-active">
+    <!-- Écran de chargement -->
+    <div class="page-loader">
+        <div class="loader-icon"></div>
+    </div>
+
+   
+
+    <!-- Tech Universe Content -->
+    <div class="tech-universe-page">
+        <div class="section-tech">
+            <div class="container">
+                <div class="tech-header" data-aos="fade-up">
+                    <h1>Mon Univers Tech</h1>
+                    <p>Bienvenue dans mon univers de développement web. Découvrez mon parcours, mes compétences techniques et mes expériences professionnelles.</p>
+                </div>
+                
+                <!-- Formation Section -->
+                <div class="formation-section" data-aos="fade-up">
+                    <h2 class="section-title">Formation</h2>
+                    <div class="formation-card" data-aos="fade-up">
+                        <h3>Diplôme d'Ingénieur à ESPRIT</h3>
+                        <div class="experience-date">2019-2024</div>
+                        <p>Spécialisation en "Technologies Web et Internet"</p>
+                        <p><strong>Mention:</strong> Très Bien</p>
+                    </div>
+                    <div class="formation-card" data-aos="fade-up" data-aos-delay="100">
+                        <h3>Baccalauréat Sciences techniques</h3>
+                        <div class="experience-date">2018-2019</div>
+                        <p><strong>Mention:</strong> Bien</p>
+                    </div>
+                </div>
+                
+                <!-- Compétences Techniques Section -->
+                <div class="competences-section" data-aos="fade-up">
+                    <h2 class="section-title">Compétences Techniques</h2>
+                    <div class="tech-grid">
+                        <div class="competence-card" data-aos="fade-up">
+                            <h3>Frameworks Frontend</h3>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-angular"></i></div>
+                                <span>Angular</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-react"></i></div>
+                                <span>React JS</span>
+                            </div>
+                        </div>
+                        
+                        <div class="competence-card" data-aos="fade-up" data-aos-delay="100">
+                            <h3>Frameworks Backend</h3>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fas fa-leaf"></i></div>
+                                <span>Spring Boot</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-node-js"></i></div>
+                                <span>Node JS</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-node"></i></div>
+                                <span>Express.js</span>
+                            </div>
+                        </div>
+                        
+                        <div class="competence-card" data-aos="fade-up" data-aos-delay="200">
+                            <h3>Base de données</h3>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fas fa-database"></i></div>
+                                <span>MongoDB</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fas fa-database"></i></div>
+                                <span>PL/SQL</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fas fa-database"></i></div>
+                                <span>SQL Server</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fas fa-database"></i></div>
+                                <span>MySQL</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fas fa-database"></i></div>
+                                <span>PostgreSQL</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fas fa-database"></i></div>
+                                <span>Oracle</span>
+                            </div>
+                        </div>
+                        
+                        <div class="competence-card" data-aos="fade-up">
+                            <h3>Langages</h3>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-microsoft"></i></div>
+                                <span>.NET</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-java"></i></div>
+                                <span>Java</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-js"></i></div>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-js"></i></div>
+                                <span>TypeScript</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-js"></i></div>
+                                <span>JQuery</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-html5"></i></div>
+                                <span>HTML5</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-css3-alt"></i></div>
+                                <span>CSS3</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-php"></i></div>
+                                <span>PHP5</span>
+                            </div>
+                        </div>
+                        
+                        <div class="competence-card" data-aos="fade-up" data-aos-delay="100">
+                            <h3>Business Intelligence</h3>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fas fa-chart-bar"></i></div>
+                                <span>Power BI</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fas fa-exchange-alt"></i></div>
+                                <span>Processus ETL</span>
+                            </div>
+                        </div>
+                        
+                        <div class="competence-card" data-aos="fade-up" data-aos-delay="200">
+                            <h3>DevOps, CI/CD</h3>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-docker"></i></div>
+                                <span>Docker</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-jenkins"></i></div>
+                                <span>Jenkins</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fas fa-check-circle"></i></div>
+                                <span>Sonar</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fas fa-archive"></i></div>
+                                <span>Nexus</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fas fa-vial"></i></div>
+                                <span>JUnit</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fas fa-chart-line"></i></div>
+                                <span>Grafana</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fas fa-fire"></i></div>
+                                <span>Prometheus</span>
+                            </div>
+                        </div>
+                        
+                        <div class="competence-card" data-aos="fade-up">
+                            <h3>Gestion de Code et Projets</h3>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-git-alt"></i></div>
+                                <span>Git</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-github"></i></div>
+                                <span>GitHub</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-trello"></i></div>
+                                <span>Trello</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fab fa-jira"></i></div>
+                                <span>Jira</span>
+                            </div>
+                        </div>
+                        
+                        <div class="competence-card" data-aos="fade-up" data-aos-delay="100">
+                            <h3>Méthodologies et Modélisation</h3>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fas fa-tasks"></i></div>
+                                <span>Scrum</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fas fa-sync-alt"></i></div>
+                                <span>Agile</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon"><i class="fas fa-project-diagram"></i></div>
+                                <span>UML</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Compétences Fonctionnelles Section -->
+                <div class="competences-fonctionnelles-section" data-aos="fade-up">
+                    <h2 class="section-title">Compétences Fonctionnelles / Métiers</h2>
+                    <div class="tech-grid">
+                        <div class="competence-card" data-aos="fade-up">
+                            <h3>Ressources Humaines</h3>
+                            <p>Gestion des contrats et des processus RH, Intégration de fonctionnalités analytiques pour un suivi efficace des performances et des besoins en ressources.</p>
+                        </div>
+                        
+                        <div class="competence-card" data-aos="fade-up" data-aos-delay="100">
+                            <h3>Gestion de Projet & Processus Agile</h3>
+                            <p>Coordination et suivi des projets avec des outils comme JIRA et Trello, intégrant des méthodologies Scrum et Agile.</p>
+                            <ul class="task-list">
+                                <li>Conduite de daily meetings, planification de sprints, gestion des backlogs, et suivi des tâches.</li>
+                                <li>Rédaction et validation de cahiers des charges techniques et fonctionnels pour des projets complexes.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="competence-card" data-aos="fade-up" data-aos-delay="200">
+                            <h3>Sécurité des Applications</h3>
+                            <p>Mise en œuvre de l'authentification Single Sign-On (SSO) via Microsoft Azure et Keycloak pour simplifier et sécuriser l'accès des utilisateurs y compris la gestion des sessions avec JSON Web Tokens (JWT).</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Langues Section -->
+                <div class="langues-section" data-aos="fade-up">
+                    <h2 class="section-title">Langues</h2>
+                    <div class="tech-grid">
+                        <div class="competence-card" data-aos="fade-up" data-aos-delay="100">
+                            <h3>Arabe</h3>
+                            <p>Lu, écrit et parlé</p>
+                        </div>
+                        <div class="competence-card" data-aos="fade-up" data-aos-delay="100">
+                            <h3>Français</h3>
+                            <p>Lu, écrit et parlé</p>
+                        </div>
+                        <div class="competence-card" data-aos="fade-up">
+                            <h3>Anglais</h3>
+                            <p>Lu, écrit et parlé</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Expériences Professionnelles Section -->
+        <div class="section-tech">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Expériences Professionnelles</h2>
+                
+                <!-- Deloitte -->
+                <div class="experience-card" data-aos="fade-up">
+                    <div class="experience-header">
+                        <div class="experience-company">Deloitte</div>
+                        <div class="experience-date">02/2024 - 09/2024</div>
+                    </div>
+                    <div class="experience-title">Développeur Full Stack JS</div>
+                    
+                    <div class="project">
+                        <div class="project-title">Projet : Plateforme intégrée de Gestion des Ressources humaines et Projets pour Deloitte Tunisie</div>
+                        <div class="project-description">
+                            <h4>Tâches réalisées :</h4>
+                            <ul class="task-list">
+                                <li>Collaboration avec l'équipe RH et métier pour rédiger le cahier des charges et définir les besoins fonctionnels et techniques.</li>
+                                <li>Conception d'une architecture robuste et évolutive adaptée aux besoins spécifiques de Deloitte Tunisie.</li>
+                                <li>Conception et développement d'une application web pour la gestion des congés, demandes de télétravail, projets, et tâches.</li>
+                                <li>Intégration de fonctionnalités avancées pour la gestion des tâches et des projets, Tableaux Kanban inspirés de Trello pour la gestion visuelle des tâches, Sprint planning et backlog pour le suivi des projets.</li>
+                                <li>Développement d'une interface utilisateur intuitive et responsive en Angular pour une expérience utilisateur optimale.</li>
+                                <li>Mise en place de l'authentification via Single Sign-On (SSO) avec Microsoft Azure, simplifiant l'accès utilisateur.</li>
+                                <li>Utilisation de JSON Web Tokens (JWT) pour sécuriser et protéger les sessions utilisateur.</li>
+                                <li>Intégration d'outils BI avec Power BI pour générer des rapports interactifs et des tableaux de bord analytiques, facilitant une prise de décision basée sur des données.</li>
+                                <li>Conteneurisation des applications avec Docker pour améliorer la portabilité et la scalabilité.</li>
+                                <li>Mise en œuvre de pipelines CI/CD avec Jenkins pour automatiser le déploiement continu et la Surveillance des performances avec Grafana et Prometheus.</li>
+                                <li>Réalisation de tests de validation et de robustesse, Utilisation de Joi pour la validation des données côté backend et Écriture de tests automatisés avec Mocha et Chai pour garantir la fiabilité et la qualité du code.</li>
+                                <li>Documentation complète et centralisée de l'API avec Swagger, facilitant la collaboration entre les équipes et accélérant le développement.</li>
+                                <li>Gestion du versionnement et des workflows collaboratifs avec Git et Jira.</li>
+                            </ul>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">MEAN Stack</span>
+                            <span class="tech-tag">Microsoft Azure</span>
+                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Jenkins</span>
+                            <span class="tech-tag">Grafana</span>
+                            <span class="tech-tag">Prometheus</span>
+                            <span class="tech-tag">Joi</span>
+                            <span class="tech-tag">Mocha</span>
+                            <span class="tech-tag">Chai</span>
+                            <span class="tech-tag">Swagger</span>
+                            <span class="tech-tag">JIRA</span>
+                            <span class="tech-tag">GitHub</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Equipe RDI/Kaddem -->
+                <div class="experience-card" data-aos="fade-up">
+                    <div class="experience-header">
+                        <div class="experience-company">Equipe RDI/Kaddem</div>
+                        <div class="experience-date">05/2023 - 10/2023</div>
+                    </div>
+                    <div class="experience-title">Développeur</div>
+                    
+                    <div class="project">
+                        <div class="project-title">Projet : Application de Gestion des Contrats d'Étudiants</div>
+                        <div class="project-description">
+                            <h4>Tâches réalisées :</h4>
+                            <ul class="task-list">
+                                <li>Conception et développement d'un backend pour gérer les opérations serveur et la logique métier.</li>
+                                <li>Développement de composants avancés pour la gestion dynamique des équipes, des départements et des contrats, avec un système de permissions sécurisé et adaptable aux spécificités des universités adhérentes.</li>
+                                <li>Élaboration des spécifications fonctionnelles et techniques en étroite collaboration avec les parties prenantes, définissant les besoins utilisateurs et les exigences du projet.</li>
+                                <li>Conception et développement d'une architecture backend robuste avec Spring Boot, développement des composants pour la gestion des équipes, des départements, et des contrats des étudiants avec une architecture modulaire et scalable.</li>
+                                <li>Développement de modules pour la gestion des équipes par spécialité et niveau, avec un système de permissions basé sur les rôles et une logique flexible permettant des ajustements pour chaque université adhérente.</li>
+                                <li>Mise en place de l'authentification sécurisée via JWT et Spring Security, avec des rôles et permissions adaptables pour différents types d'utilisateurs (administrateurs, responsables, étudiants).</li>
+                                <li>Création de l'interface utilisateur avec Angular, permettant une gestion fluide et interactive des informations liées aux équipes, départements, et contrats étudiants. Utilisation de TypeScript et RxJS pour une gestion réactive des données et des interfaces utilisateur dynamiques.</li>
+                                <li>Préparation de l'environnement Jenkins pour l'automatisation des builds et des déploiements.</li>
+                                <li>Configuration de l'intégration continue (CI) avec Jenkins, y compris la récupération du code source depuis GitHub.</li>
+                                <li>Implémentation d'une analyse continue de la qualité du code avec SonarQube, pour assurer la conformité aux standards et optimiser les performances et la maintenabilité.</li>
+                                <li>Création et hébergement des artefacts dans Nexus pour une gestion centralisée des versions des composants du projet.</li>
+                                <li>Publication des images Docker sur DockerHub pour faciliter le déploiement des conteneurs.</li>
+                                <li>Utilisation de Docker Compose pour démarrer simultanément les différents services et tester l'application Angular dans un environnement conteneurisé, garantissant un déploiement cohérent et reproductible.</li>
+                                <li>Surveillance proactive et visualisation des données avec Prometheus et Grafana, permettant un suivi en temps réel de la performance de l'application et une détection rapide des anomalies afin d'assurer la disponibilité et la résilience du service.</li>
+                            </ul>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Jenkins</span>
+                            <span class="tech-tag">GitHub</span>
+                            <span class="tech-tag">SonarQube</span>
+                            <span class="tech-tag">Nexus</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">DockerHub</span>
+                            <span class="tech-tag">Docker Compose</span>
+                            <span class="tech-tag">Prometheus</span>
+                            <span class="tech-tag">Grafana</span>
+                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">Spring Security</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ESPRIT-TIC -->
+                <div class="experience-card" data-aos="fade-up">
+                    <div class="experience-header">
+                        <div class="experience-company">ESPRIT-TIC</div>
+                        <div class="experience-date">01/2023 - 04/2023</div>
+                    </div>
+                    <div class="experience-title">Développeur</div>
+                    
+                    <div class="project">
+                        <div class="project-title">Projet 1 : Solution de gestion des affectations</div>
+                        <div class="project-description">
+                            <h4>Tâches réalisées :</h4>
+                            <ul class="task-list">
+                                <li>Analyse des besoins pour définir une architecture robuste et évolutive. Rédaction des spécifications détaillées pour le développement d'une solution technique adaptée, en mettant l'accent sur la scalabilité et la performance.</li>
+                                <li>Conception et développement d'un système de gestion des affectations en utilisant Django et Python pour le backend.</li>
+                                <li>Développement d'un système de gestion des affectations utilisant Django et Python, assurant une gestion flexible et efficace des données.</li>
+                                <li>Création d'une interface utilisateur moderne et réactive avec React.js, améliorant l'expérience utilisateur et la fluidité de l'application.</li>
+                                <li>Implémentation d'un algorithme d'attribution des tâches basé sur des critères de compétences et de priorités, utilisant des méthodes de machine learning telles que K-Means pour le clustering des tâches et utilisateurs, et KNN pour affiner les affectations en fonction des profils des utilisateurs.</li>
+                                <li>Intégration d'un système de gestion des compétences et de suivi des performances, contribuant à l'amélioration continue des processus d'affectation avec l'utilisation de techniques de régression logistique et d'analyses de clusters.</li>
+                                <li>Implémentation de MongoDB pour la gestion des données non relationnelles, avec des stratégies d'indexation pour optimiser les performances de recherche et de stockage. Application des meilleures pratiques de sécurité et de gestion des accès via OAuth et JWT pour sécuriser les interactions entre le frontend et le backend.</li>
+                            </ul>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">K-Means</span>
+                            <span class="tech-tag">KNN</span>
+                            <span class="tech-tag">Régression logistique</span>
+                            <span class="tech-tag">Redux</span>
+                            <span class="tech-tag">OAuth</span>
+                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">Machine Learning</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project" style="margin-top: 30px;">
+                        <div class="project-title">Projet 2 : Solution de gestion des stocks et des affectations</div>
+                        <div class="project-description">
+                            <h4>Tâches réalisées :</h4>
+                            <ul class="task-list">
+                                <li>Rédaction du cahier des charges en collaboration avec l'équipe ESPRIT TIC pour une compréhension précise des besoins en gestion des stocks et des affectations.</li>
+                                <li>Rédaction de spécifications techniques et fonctionnelles détaillées pour garantir l'alignement entre les attentes métier et les exigences techniques.</li>
+                                <li>Conception de l'architecture backend avec Spring Boot, permettant la gestion optimisée des opérations de stocks et d'affectations entre les dépôts et les centres d'hébergement.</li>
+                                <li>Développement de la logique métier pour gérer les flux de stocks et optimiser les affectations, en prenant en compte les particularités de chaque centre d'hébergement et dépôt.</li>
+                                <li>Création d'une interface utilisateur interactive et réactive avec React.js pour la gestion des stocks et des affectations.</li>
+                                <li>Mise en place de MongoDB pour le stockage des données.</li>
+                                <li>Réalisation de tests unitaires et fonctionnels pour vérifier la robustesse des fonctionnalités développées.</li>
+                                <li>Déploiement sur un environnement de staging pour les tests d'intégration, suivi de la correction des anomalies détectées lors des tests.</li>
+                            </ul>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PetConnection -->
+                <div class="experience-card" data-aos="fade-up">
+                    <div class="experience-header">
+                        <div class="experience-company">PetConnection</div>
+                        <div class="experience-date">11/2022 - 03/2023</div>
+                    </div>
+                    <div class="experience-title">Développeur</div>
+                    
+                    <div class="project">
+                        <div class="project-title">Projet : Application web pour soutenir les animaux</div>
+                        <div class="project-description">
+                            <h4>Tâches réalisées :</h4>
+                            <ul class="task-list">
+                                <li>Analyse et traitement des données d'une enquête de satisfaction clients.</li>
+                                <li>Mise en place de l'architecture backend pour gérer les opérations serveur et les interactions avec la base de données MongoDB.</li>
+                                <li>Création d'une API RESTful avec Express.js pour gérer les différentes fonctionnalités (gestion des utilisateurs, vétérinaires, associations, dons, marketplace, etc.).</li>
+                                <li>Intégration de fonctionnalités basées sur l'IA pour la reconnaissance des races de chiens, incluant l'implémentation et l'intégration d'algorithmes de traitement d'images.</li>
+                                <li>Conception de l'interface utilisateur.</li>
+                                <li>Développement d'un chatbot assistant pour aider les utilisateurs dans leurs recherches et interactions avec l'application.</li>
+                                <li>Implémentation d'un système de reconnaissance faciale pour faciliter l'inscription et la connexion des utilisateurs via des technologies comme Face API garantissant ainsi une authentification sécurisée.</li>
+                                <li>Implémentation de la fonctionnalité de vidéoconférence et de messagerie entre les utilisateurs et les vétérinaires via des services comme WebRTC pour permettre des consultations à distance, ainsi qu'une messagerie en temps réel via Socket.io.</li>
+                                <li>Intégration d'une cartographie géographique pour afficher les vétérinaires et associations disponibles dans différentes zones, en utilisant Google Maps API pour localiser les utilisateurs et leur proposer des options proches.</li>
+                                <li>Création d'un système de notifications pour informer les utilisateurs des événements liés aux animaux.</li>
+                                <li>Adoption d'une architecture microservices pour séparer les différentes parties de l'application en services indépendants (gestion des utilisateurs, des vétérinaires, des dons, Marketplace, ...), facilitant ainsi la scalabilité et la maintenance.</li>
+                                <li>Utilisation de Docker pour containeriser les services et Kubernetes pour gérer leur orchestration.</li>
+                                <li>Mise en place de tests unitaires avec Jest et Mocha pour tester les composants backend et frontend de l'application, garantissant une couverture de code et une qualité logicielle optimale.</li>
+                                <li>Conception d'une interface utilisateur fluide et réactive en utilisant React.js avec Redux pour la gestion de l'état, permettant une expérience utilisateur optimale. Mise en œuvre de Material-UI pour des composants UI modernes et ergonomiques.</li>
+                            </ul>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">WebRTC</span>
+                            <span class="tech-tag">Socket.io</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">Google Maps API</span>
+                            <span class="tech-tag">Jest</span>
+                            <span class="tech-tag">Mocha</span>
+                            <span class="tech-tag">Material-UI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Back to Home Button -->
+        <a href="index.html" class="back-to-home">
+            <i class="fas fa-home"></i>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: false,
+                mirror: true,
+                offset: 50
+            });
+            
+            // Hide loader when page is loaded
+            window.addEventListener('load', function() {
+                const pageLoader = document.querySelector('.page-loader');
+                if (pageLoader) {
+                    setTimeout(function() {
+                        pageLoader.classList.add('fade-out');
+                        setTimeout(function() {
+                            pageLoader.style.display = 'none';
+                        }, 500);
+                    }, 800);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

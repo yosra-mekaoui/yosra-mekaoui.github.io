@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yosra Mekaoui - Univers Sport</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme-dark-purple-combined.css">
+    <link rel="stylesheet" href="css/dual-universe.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <style>
+        .sport-universe-page {
+            background: linear-gradient(135deg, var(--sport-background), var(--sport-primary));
+            min-height: 100vh;
+        }
+        
+        .section-sport {
+            padding: 80px 0;
+        }
+        
+        .sport-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .sport-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .sport-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .taekwondo-card, .coaching-card, .certification-card {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .taekwondo-card:hover, .coaching-card:hover, .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .taekwondo-card h3, .coaching-card h3, .certification-card h3 {
+            color: var(--sport-accent);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .sport-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .sport-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .sport-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--sport-primary);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+        
+        .achievement-date {
+            background: var(--sport-primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .achievement-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+        
+        .sport-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .sport-tag {
+            background: var(--sport-secondary);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 200px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .coaching-services {
+            margin-top: 30px;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-card h4 {
+            color: var(--sport-accent);
+            margin-bottom: 10px;
+        }
+        
+        .service-price {
+            font-weight: bold;
+            color: var(--white);
+            margin: 15px 0;
+        }
+        
+        .back-to-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--sport-primary);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .back-to-home:hover {
+            background: var(--sport-secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+        
+       
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 60px auto;
+            text-align: center;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, #06d6a0, #1b9aaa);
+                        top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 209, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 209, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 209, 102, 0);
+            }
+        }
+        
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            animation: fadeIn 0.5s ease-in-out;
+            animation-fill-mode: both;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .timeline-container.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: #4CAF50;
+            border: 4px solid #FFFFFF;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.3);
+            transition: all 0.3s ease;
+            animation: glow 1.5s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px -5px #ffd166;
+            }
+            to {
+                box-shadow: 0 0 20px 5px #ffd166;
+            }
+        }
+        
+        .timeline-container:hover::after {
+            background-color: #FFFFFF;
+            border: 4px solid #e040fb;
+            transform: scale(1.2);
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #e040fb;
+        }
+        
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #e040fb transparent transparent;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.5), #06d6a0);
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border-left: 4px solid #e040fb;
+            text-align: left;
+            animation: slideIn 0.5s ease-in-out;
+            animation-fill-mode: both;
+        }
+        
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .right .timeline-content {
+            animation: slideInRight 0.5s ease-in-out;
+            animation-fill-mode: both;
+        }
+        
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-container::before {
+                left: 60px;
+                border: medium solid;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent #1B5E20 transparent transparent;
+            }
+            
+            .left::after, .right::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+        
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .gallery-item-large {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .gallery-item-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item-large:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item-large .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item-large:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px;
+        }
+        
+        .gallery-item-medium {
+            width: 100%;
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .gallery-item-medium img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item-medium:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item-medium .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item-medium:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .personal-info-section {
+            background: linear-gradient(135deg, rgba(6, 214, 160, 0.1), rgba(27, 154, 170, 0.1));
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .personal-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .personal-info-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .personal-info-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #06d6a0, #1B9AAA);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .info-details {
+            color: #333;
+        }
+        
+        .info-details h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: #073B4C;
+        }
+        
+        .info-details p {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #06d6a0;
+        }
+    </style>
+</head>
+<body class="sport-universe-active">
+    <!-- Écran de chargement -->
+    <div class="page-loader">
+        <div class="loader-icon"></div>
+    </div>
+
+    <!-- Universe Switch -->
+   
+
+    <!-- Sport Universe Content -->
+    <div class="sport-universe-page">
+        <div class="section-sport">
+            <div class="container">
+                <div class="sport-header" data-aos="fade-up">
+                    <h1>Mon Univers Sport</h1>
+                    <p>Bienvenue dans mon univers sportif. Découvrez mon parcours de taekwondoïste, mes certifications et mon approche du coaching sportif.</p>
+                </div>
+                
+                <!-- Parcours Taekwondo Section -->
+                <div class="taekwondo-section" data-aos="fade-up">
+                    <h2 class="section-title">Mon Parcours en Taekwondo</h2>
+                    <div class="taekwondo-card" data-aos="fade-up">
+                        <h3>Ceinture Noire 2ème Dan</h3>
+                        <div class="achievement-date">Plus de 18 ans de pratique</div>
+                        <p>Je pratique le taekwondo depuis 2006 et j'ai atteint le grade de ceinture noire 2ème dan en 2018. Cette discipline m'a enseigné la persévérance, la discipline et le dépassement de soi, des valeurs que j'applique aussi bien dans ma vie professionnelle que personnelle.</p>
+                        <p>En 2015, j'ai obtenu mon diplôme international de Kukkiwon (World Taekwondo Headquarters), la référence mondiale en matière de taekwondo. J'ai également obtenu un certificat d'arbitrage en 2016 et un certificat de fitness en 2021, complétant ainsi ma formation sportive.</p>
+                        <p>Le taekwondo est bien plus qu'un sport pour moi, c'est une philosophie de vie qui m'a permis de développer ma confiance en moi et ma capacité à relever des défis.</p>
+                    </div>
+                    
+                    <!-- Timeline Parcours -->
+                    <h3 class="section-title">Mon Évolution</h3>
+                    <div class="timeline">
+                        <div class="timeline-container left">
+                            <div class="timeline-content">
+                                <h2>2006</h2>
+                                <p>Début de ma pratique du taekwondo</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container right">
+                            <div class="timeline-content">
+                                <h2>2015</h2>
+                                <p>Obtention de mon diplôme international de Kukkiwon (World Taekwondo Headquarters)</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container left">
+                            <div class="timeline-content">
+                                <h2>2016</h2>
+                                <p>Obtention de la ceinture noire 1er dan</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container right">
+                            <div class="timeline-content">
+                                <h2>2016</h2>
+                                <p>Obtention de mon certificat d'arbitrage en taekwondo</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container left">
+                            <div class="timeline-content">
+                                <h2>2018</h2>
+                                <p>Obtention de la ceinture noire 2ème dan</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container right">
+                            <div class="timeline-content">
+                                <h2>2021</h2>
+                                <p>Obtention de mon certificat de fitness</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Galerie Photos -->
+                <div class="gallery-section" data-aos="fade-up">
+                    <h2 class="section-title">Galerie Photos</h2>
+                    <div class="gallery-container">
+                        <div class="gallery-item-large" data-aos="zoom-in">
+                            <img src="images/taekwondo.jpg" alt="Yosra Mekaoui en tenue de taekwondo">
+                            <div class="gallery-caption">
+                                <h3>Entraînement de taekwondo</h3>
+                                <p>Session d'entraînement technique</p>
+                            </div>
+                        </div>
+                        <div class="gallery-grid">
+                            <div class="gallery-item-medium" data-aos="zoom-in" data-aos-delay="100">
+                                <img src="images/taekwondo-gallery1.jpg" alt="Yosra Mekaoui en compétition">
+                                <div class="gallery-caption">
+                                    <h3>Compétition nationale</h3>
+                                    <p>Championnat de Tunisie</p>
+                                </div>
+                            </div>
+                            <div class="gallery-item-medium" data-aos="zoom-in" data-aos-delay="200">
+                                <img src="images/taekwondo-gallery2.jpg" alt="Yosra Mekaoui lors d'une démonstration">
+                                <div class="gallery-caption">
+                                    <h3>Démonstration technique</h3>
+                                    <p>Exhibition de poomsae</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Informations Personnelles -->
+                <div class="personal-info-section" data-aos="fade-up">
+                    <h2 class="section-title">Informations Personnelles</h2>
+                    <div class="personal-info-grid">
+                        <div class="personal-info-item">
+                            <div class="info-icon"><i class="fas fa-weight"></i></div>
+                            <div class="info-details">
+                                <h4>Poids</h4>
+                                <p>59 kg</p>
+                            </div>
+                        </div>
+                        <div class="personal-info-item">
+                            <div class="info-icon"><i class="fas fa-ruler-vertical"></i></div>
+                            <div class="info-details">
+                                <h4>Taille</h4>
+                                <p>168 cm</p>
+                            </div>
+                        </div>
+                        <div class="personal-info-item">
+                            <div class="info-icon"><i class="fas fa-birthday-cake"></i></div>
+                            <div class="info-details">
+                                <h4>Âge</h4>
+                                <p>25 ans (née le 07/07/2000)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Coaching Sportif Section -->
+                <div class="coaching-section" data-aos="fade-up">
+                    <h2 class="section-title">Coaching Sportif</h2>
+                    <div class="coaching-card" data-aos="fade-up">
+                        <h3>Mon Approche</h3>
+                        <p>En tant que coach sportive, je propose une approche personnalisée qui s'adapte aux besoins et aux objectifs de chacun. Je combine mon expertise en taekwondo avec des méthodes d'entraînement modernes pour offrir des programmes efficaces et motivants.</p>
+                        <p>Je crois fermement que le sport doit être accessible à tous, c'est pourquoi je propose des cours adaptés à tous les niveaux, des débutants aux athlètes confirmés.</p>
+                    </div>
+                    
+                    <div class="sport-grid">
+                        <div class="coaching-card" data-aos="fade-up">
+                            <h3>Spécialités</h3>
+                            <div class="sport-item">
+                                <div class="sport-icon"><i class="fas fa-fist-raised"></i></div>
+                                <span>Taekwondo (tous niveaux)</span>
+                            </div>
+                            <div class="sport-item">
+                                <div class="sport-icon"><i class="fas fa-dumbbell"></i></div>
+                                <span>Fitness</span>
+                            </div>
+                            <div class="sport-item">
+                                <div class="sport-icon"><i class="fas fa-running"></i></div>
+                                <span>HIIT (High Intensity Interval Training)</span>
+                            </div>
+                            <div class="sport-item">
+                                <div class="sport-icon"><i class="fas fa-spa"></i></div>
+                                <span>Pilates</span>
+                            </div>
+                            <div class="sport-item">
+                                <div class="sport-icon"><i class="fas fa-female"></i></div>
+                                <span>Cours 100% femmes</span>
+                            </div>
+                        </div>
+                        
+                        <div class="coaching-card" data-aos="fade-up" data-aos-delay="100">
+                            <h3>Certifications</h3>
+                            <div class="sport-item">
+                                <div class="sport-icon"><i class="fas fa-certificate"></i></div>
+                                <span>Ceinture Noire 2ème Dan de Taekwondo (2018)</span>
+                            </div>
+                            <div class="sport-item">
+                                <div class="sport-icon"><i class="fas fa-certificate"></i></div>
+                                <span>Diplôme International de Kukkiwon (2015)</span>
+                            </div>
+                            <div class="sport-item">
+                                <div class="sport-icon"><i class="fas fa-certificate"></i></div>
+                                <span>Certificat d'Arbitrage en Taekwondo (2016)</span>
+                            </div>
+                            <div class="sport-item">
+                                <div class="sport-icon"><i class="fas fa-certificate"></i></div>
+                                <span>Certification en Fitness (2021)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="section-title" data-aos="fade-up">Mes Services</h3>
+                    <div class="coaching-services">
+                        <div class="sport-grid">
+                            <div class="service-card" data-aos="fade-up">
+                                <h4>Cours Particuliers de Taekwondo</h4>
+                                <p>Cours individuels adaptés à votre niveau et à vos objectifs spécifiques.</p>
+                                <div class="sport-tags">
+                                    <span class="sport-tag">Technique</span>
+                                    <span class="sport-tag">Combat</span>
+                                    <span class="sport-tag">Préparation aux compétitions</span>
+                                </div>
+                            </div>
+                            
+                           
+                            
+                            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                                <h4>Programme Personnalisé</h4>
+                                <p>Un programme d'entraînement sur mesure avec suivi régulier pour atteindre vos objectifs.</p>
+                                <div class="sport-tags">
+                                    <span class="sport-tag">Coaching à distance</span>
+                                    <span class="sport-tag">Suivi nutritionnel</span>
+                                    <span class="sport-tag">Bilan mensuel</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                                <h4>Cours 100% Femmes</h4>
+                                <p>Séances dédiées aux femmes souhaitant s'initier aux arts martiaux dans un cadre bienveillant.</p>
+                                <div class="sport-tags">
+                                    <span class="sport-tag">Self-défense</span>
+                                    <span class="sport-tag">Confiance en soi</span>
+                                    <span class="sport-tag">Remise en forme</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Témoignages Section -->
+                <div class="testimonials-section" data-aos="fade-up">
+                    <h2 class="section-title">Témoignages</h2>
+                    <div class="sport-grid">
+                        
+                    </div>
+                </div>
+                
+                <!-- Contact Coaching Section -->
+                <div class="contact-coaching-section" data-aos="fade-up">
+                    <h2 class="section-title">Me Contacter</h2>
+                    <div class="coaching-card" data-aos="fade-up">
+                        <h3>Réserver une séance</h3>
+                        <p>Vous souhaitez réserver une séance ou obtenir plus d'informations sur mes services de coaching ? N'hésitez pas à me contacter !</p>
+                        <div class="sport-item">
+                            <div class="sport-icon"><i class="fas fa-envelope"></i></div>
+                            <span>mekaoui.yosra@gmail.com</span>
+                        </div>
+                        <div class="sport-item">
+                            <div class="sport-icon"><i class="fas fa-phone"></i></div>
+                            <span>+216 95 610 184</span>
+                        </div>
+                        <div class="sport-item">
+                            <div class="sport-icon"><i class="fab fa-instagram"></i></div>
+                            <span>@yosra_mekaoui</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Back to Home Button -->
+        <a href="index.html" class="back-to-home">
+            <i class="fas fa-home"></i>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: false,
+                mirror: true,
+                offset: 50
+            });
+            
+            // Hide loader when page is loaded
+            window.addEventListener('load', function() {
+                const pageLoader = document.querySelector('.page-loader');
+                if (pageLoader) {
+                    setTimeout(function() {
+                        pageLoader.classList.add('fade-out');
+                        setTimeout(function() {
+                            pageLoader.style.display = 'none';
+                        }, 500);
+                    }, 800);
+                }
+            });
+
+            // Animation pour la timeline
+            const timelineContainers = document.querySelectorAll('.timeline-container');
+            
+            // Fonction pour vérifier si un élément est visible dans la fenêtre
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+            
+            // Fonction pour animer les éléments de la timeline
+            function animateTimelineElements() {
+                timelineContainers.forEach((container, index) => {
+                    if (isElementInViewport(container)) {
+                        container.style.animationDelay = `${index * 0.2}s`;
+                        container.classList.add('animate');
+                    }
+                });
+            }
+            
+            // Ajouter la classe animate aux éléments visibles au chargement
+            window.addEventListener('load', animateTimelineElements);
+            
+            // Ajouter la classe animate aux éléments visibles lors du défilement
+            window.addEventListener('scroll', animateTimelineElements);
+        });
+    </script>
+</body>
+</html>

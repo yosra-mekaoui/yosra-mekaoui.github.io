@@ -1,0 +1,706 @@
+/* Thème sombre avec touches de violet/rose */
+@import url('theme-dark-purple.css');
+@import url('theme-dark-purple-part2.css');
+@import url('theme-dark-purple-part3.css');
+
+/* Animations supplémentaires */
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.scale-in {
+    animation: scaleIn 0.5s ease forwards;
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Améliorations pour les images */
+.img-hover-effect {
+    transition: all 0.5s ease;
+    filter: brightness(0.9);
+}
+
+.img-hover-effect:hover {
+    filter: brightness(1.1);
+    transform: scale(1.03);
+}
+
+/* Améliorations pour les boutons */
+.btn-3d {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-3d:hover {
+    transform: translateY(-5px) translateZ(10px);
+    box-shadow: 0 10px 20px rgba(156, 39, 176, 0.4);
+}
+
+/* Améliorations pour les cartes */
+.card-hover {
+    transition: all 0.4s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(156, 39, 176, 0.2);
+}
+
+/* Améliorations pour les liens */
+.link-hover {
+    position: relative;
+    display: inline-block;
+}
+
+.link-hover::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient);
+    transition: width 0.3s ease;
+}
+
+.link-hover:hover::after {
+    width: 100%;
+}
+
+/* Améliorations pour les sections */
+.section-parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Améliorations pour les formulaires */
+.input-focus {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.input-focus:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(156, 39, 176, 0.2);
+    outline: none;
+}
+
+/* Améliorations pour les icônes */
+.icon-pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Améliorations pour le scroll */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--darker-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* Améliorations pour le texte */
+.text-gradient {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.text-shadow {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Améliorations pour les transitions de page */
+.page-transition {
+    animation: pageTransition 0.5s ease;
+}
+
+@keyframes pageTransition {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Améliorations pour les effets de survol */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Améliorations pour les badges */
+.badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: rgba(156, 39, 176, 0.1);
+    color: var(--accent-color);
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.badge:hover {
+    background: var(--gradient);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(156, 39, 176, 0.3);
+}
+
+/* Améliorations pour les tooltips */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--card-bg);
+    color: var(--light-color);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-shadow: var(--shadow);
+}
+
+.tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--card-bg) transparent transparent transparent;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Améliorations pour les notifications */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--card-bg);
+    color: var(--light-color);
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    transform: translateX(150%);
+    transition: transform 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.success {
+    border-left: 4px solid #4CAF50;
+}
+
+.notification.error {
+    border-left: 4px solid #F44336;
+}
+
+.notification.info {
+    border-left: 4px solid var(--primary-color);
+}
+
+/* Améliorations pour les modals */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+    transform: scale(0.7);
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: var(--light-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--accent-color);
+    transform: rotate(90deg);
+}
+
+/* Améliorations pour les loaders */
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid var(--card-bg);
+    border-bottom-color: var(--primary-color);
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Améliorations pour les progress bars */
+.progress {
+    width: 100%;
+    height: 8px;
+    background: var(--darker-color);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--gradient);
+    border-radius: 4px;
+    transition: width 1s ease;
+    position: relative;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+                               transparent 0%, 
+                               rgba(255, 255, 255, 0.2) 50%, 
+                               transparent 100%);
+    animation: progressShine 2s infinite;
+}
+
+@keyframes progressShine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Améliorations pour les tableaux */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+    background-color: var(--darker-color);
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+tr {
+    transition: all 0.3s ease;
+}
+
+tr:hover {
+    background-color: rgba(156, 39, 176, 0.05);
+}
+
+/* Améliorations pour les listes */
+ul.styled-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul.styled-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+ul.styled-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background: var(--gradient);
+    border-radius: 50%;
+}
+
+/* Améliorations pour les dividers */
+.divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, 
+                               transparent, 
+                               rgba(156, 39, 176, 0.5), 
+                               transparent);
+    margin: 30px 0;
+}
+
+/* Améliorations pour les blockquotes */
+blockquote {
+    border-left: 4px solid var(--primary-color);
+    padding: 20px;
+    background: rgba(156, 39, 176, 0.05);
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+blockquote p {
+    font-style: italic;
+    color: var(--light-color);
+    margin-bottom: 10px;
+}
+
+blockquote cite {
+    display: block;
+    color: var(--accent-color);
+    font-style: normal;
+    font-weight: 600;
+}
+
+/* Bouton de retour en haut de page */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--gradient);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(156, 39, 176, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.scroll-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(156, 39, 176, 0.6);
+}
+
+/* Animation de la section Taekwondo */
+.taekwondo .parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/pattern.png');
+    opacity: 0.03;
+    pointer-events: none;
+}
+
+/* Animation du curseur pour l'effet de typing */
+.hero-title.typing-done::after {
+    content: '|';
+    display: inline-block;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Animation pour les valeurs de Taekwondo */
+.value {
+    transition: all 0.4s ease;
+}
+
+.value:hover {
+    transform: translateY(-10px) scale(1.05);
+    background: linear-gradient(135deg, var(--card-bg), rgba(156, 39, 176, 0.1));
+}
+
+.value i {
+    transition: all 0.5s ease;
+}
+
+.value:hover i {
+    transform: rotate(360deg);
+    color: var(--accent-color);
+}
+
+/* Animation pour les images de la galerie */
+.gallery-item.active img {
+    transform: scale(1.1);
+}
+
+.gallery-item.active .gallery-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation pour les compteurs */
+.counter {
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+/* Animations spéciales pour la section Taekwondo */
+@keyframes kick {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-15deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.taekwondo-img:hover {
+    animation: kick 1s ease;
+}
+
+/* Animations pour les projets */
+.project-card {
+    transition: all 0.5s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(156, 39, 176, 0.4);
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.1);
+}
+
+.project-card:hover .project-title {
+    color: var(--accent-color);
+}
+
+/* Animations pour la timeline */
+.timeline-item {
+    transition: all 0.5s ease;
+}
+
+.timeline-item:hover .timeline-content {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(156, 39, 176, 0.3);
+}
+
+.timeline-item:hover .timeline-date {
+    background: rgba(156, 39, 176, 0.2);
+    transform: scale(1.05);
+}
+
+.timeline-item:hover .timeline-dot {
+    transform: scale(1.3);
+    box-shadow: 0 0 0 8px rgba(156, 39, 176, 0.2);
+}
+
+/* Animations pour le formulaire de contact */
+.form-control {
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(156, 39, 176, 0.2);
+}
+
+.btn-submit {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.5s ease;
+}
+
+.btn-submit:hover::before {
+    left: 100%;
+}
+
+/* Animations pour le menu mobile */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.burger {
+    transition: all 0.3s ease;
+}
+
+.burger:hover {
+    transform: scale(1.1);
+}
+
+.burger.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+    background-color: var(--accent-color);
+}
+
+.burger.toggle .line2 {
+    opacity: 0;
+}
+
+.burger.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+    background-color: var(--accent-color);
+}
+
+/* Animations pour le header au scroll */
+header.scrolled {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+header.scrolled .logo {
+    font-size: 1.8rem;
+}
+
+header.scrolled nav {
+    padding: 10px 5%;
+}
+
+/* Animations pour les liens sociaux */
+.social-links a:hover i {
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Animation de chargement de page */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--darker-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.page-loader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-icon {
+    width: 60px;
+    height: 60px;
+    border: 5px solid transparent;
+    border-top: 5px solid var(--primary-color);
+    border-right: 5px solid var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
